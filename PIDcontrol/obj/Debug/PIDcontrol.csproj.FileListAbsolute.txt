@@ -1,0 +1,7 @@
+c:\users\chen\documents\visual studio 2017\Projects\PIDcontrol\PIDcontrol\bin\PIDcontrol.dll
+c:\users\chen\documents\visual studio 2017\Projects\PIDcontrol\PIDcontrol\bin\PIDcontrol.pdb
+c:\users\chen\documents\visual studio 2017\Projects\PIDcontrol\PIDcontrol\obj\Debug\PIDcontrol.csprojResolveAssemblyReference.cache
+c:\users\chen\documents\visual studio 2017\Projects\PIDcontrol\PIDcontrol\obj\Debug\PIDcontrol.Properties.Resources.resources
+c:\users\chen\documents\visual studio 2017\Projects\PIDcontrol\PIDcontrol\obj\Debug\PIDcontrol.csproj.GenerateResource.Cache
+c:\users\chen\documents\visual studio 2017\Projects\PIDcontrol\PIDcontrol\obj\Debug\PIDcontrol.dll
+c:\users\chen\documents\visual studio 2017\Projects\PIDcontrol\PIDcontrol\obj\Debug\PIDcontrol.pdb

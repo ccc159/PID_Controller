@@ -32,6 +32,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="SharpDX, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpDX.4.0.1\lib\net45\SharpDX.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.XInput, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpDX.XInput.4.0.1\lib\net45\SharpDX.XInput.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
@@ -57,7 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PathFollowing.cs" />
-    <Compile Include="PID - Copy.cs" />
+    <Compile Include="PIDbackup.cs" />
     <Compile Include="PID.cs" />
     <Compile Include="PIDcontrolComponent.cs" />
     <Compile Include="PIDcontrolInfo.cs" />
@@ -67,6 +73,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Robot.cs" />
+    <Compile Include="Xbox360\Point.cs" />
+    <Compile Include="Xbox360\XboxController.cs" />
+    <Compile Include="Xbox360\XboxControllerStateChangedEventArgs.cs" />
+    <Compile Include="Xbox360\XInput.cs" />
+    <Compile Include="Xbox360\XInputBatteryInformation.cs" />
+    <Compile Include="Xbox360\XInputCapabilities.cs" />
+    <Compile Include="Xbox360\XInputConstants.cs" />
+    <Compile Include="Xbox360\XInputGamepad.cs" />
+    <Compile Include="Xbox360\XInputKeystroke.cs" />
+    <Compile Include="Xbox360\XInputState.cs" />
+    <Compile Include="Xbox360\XInputVibration.cs" />
+    <Compile Include="XboxControllerComponent.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -75,6 +94,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="src\icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

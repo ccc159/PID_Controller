@@ -35,6 +35,7 @@ namespace PIDcontrol
         public double computeHz;
         public Thread runThread;
         public double dT;
+        public double outDefault;
 
         private PIDcontrolComponent pidControlComponent;
 
@@ -42,7 +43,7 @@ namespace PIDcontrol
 
         // Constructor
         public PID(double err, double eMin, double eMax, double oMin, double oMax, double pG, double iG, double dG, 
-             double feed, double hz, PIDcontrolComponent pidControlComponent)
+             double feed, double outdefault, double hz, PIDcontrolComponent pidControlComponent)
         {
             kp = pG;
             ki = iG;
@@ -53,6 +54,7 @@ namespace PIDcontrol
             outMin = oMin;
             error = err;
             feedforward = feed;
+            outDefault = outdefault;
             computeHz = hz;
             this.pidControlComponent = pidControlComponent;
         }
@@ -94,7 +96,7 @@ namespace PIDcontrol
         {
             errSum = 0.0;
             preError = 0.0;
-            output = 1000;
+            output = outDefault;
             pOut = 0;
             iOut = 0;
             dOut = 0;

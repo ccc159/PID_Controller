@@ -27,6 +27,7 @@ namespace PIDcontrol
         public bool enable;
         public bool reset;
         public PID iPID;
+        public double outDefault;
 
         public double Out;
         public double pOut;
@@ -62,6 +63,7 @@ namespace PIDcontrol
             pManager.AddNumberParameter("Ki", "Ki", "Integral parameter", GH_ParamAccess.item);
             pManager.AddNumberParameter("Kd", "Kd", "Derivative parameter", GH_ParamAccess.item);
             pManager.AddNumberParameter("FeedFwd", "FeedFwd", "Feed forward value for output.", GH_ParamAccess.item);
+            pManager.AddNumberParameter("Default", "Default", "Defalut output if disabled.", GH_ParamAccess.item);
             pManager.AddNumberParameter("Hz", "Hz", "compute frequency", GH_ParamAccess.item);
             pManager.AddBooleanParameter("Enable", "Enable", "Enable the controller", GH_ParamAccess.item,true);
             pManager.AddBooleanParameter("Reset", "Reset", "reset the controller", GH_ParamAccess.item, false);
@@ -95,11 +97,12 @@ namespace PIDcontrol
             DA.GetData("Ki", ref ki);
             DA.GetData("Kd", ref kd);
             DA.GetData("FeedFwd", ref feedforward);
+            DA.GetData("Default", ref outDefault);
             DA.GetData("Hz", ref computeHz);
             DA.GetData("Enable", ref enable);
             DA.GetData("Reset", ref reset);
 
-            if (iPID == null) iPID = new PID(error,errMin,errMax,outMin,outMax,kp,ki,kd,feedforward,computeHz, this);
+            if (iPID == null) iPID = new PID(error,errMin,errMax,outMin,outMax,kp,ki,kd,feedforward,outDefault, computeHz, this);
             iPID.error = error;
             iPID.errMin = errMin;
             iPID.errMax = errMax;
@@ -109,6 +112,7 @@ namespace PIDcontrol
             iPID.ki = ki;
             iPID.kd = kd;
             iPID.feedforward = feedforward;
+            iPID.outDefault = outDefault;
             iPID.computeHz = computeHz;
 
             if(enable) iPID.Enable();

@@ -101,7 +101,7 @@ namespace PIDcontrol
             DA.SetData("Left X Axis", LeftXAxis);
             DA.SetData("Left Y Axis", LeftYAxis);
             DA.SetData("Right X Axis", RightXAxis);
-            DA.SetData("Right Y Axis", RightXAxis);
+            DA.SetData("Right Y Axis", RightYAxis);
             DA.SetData("Left Trigger", LeftTrigger);
             DA.SetData("Right Trigger", RightTrigger);
             DA.SetData("Button A", currentController.IsAPressed);

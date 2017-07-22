@@ -5,7 +5,3 @@ c:\users\chen\documents\visual studio 2017\Projects\PIDcontrol\PIDcontrol\obj\De
 c:\users\chen\documents\visual studio 2017\Projects\PIDcontrol\PIDcontrol\obj\Debug\PIDcontrol.csproj.GenerateResource.Cache
 c:\users\chen\documents\visual studio 2017\Projects\PIDcontrol\PIDcontrol\obj\Debug\PIDcontrol.dll
 c:\users\chen\documents\visual studio 2017\Projects\PIDcontrol\PIDcontrol\obj\Debug\PIDcontrol.pdb
-C:\Users\Chen\documents\visual studio 2017\Projects\PIDcontrol\PIDcontrol\bin\SharpDX.dll
-C:\Users\Chen\documents\visual studio 2017\Projects\PIDcontrol\PIDcontrol\bin\SharpDX.XInput.dll
-C:\Users\Chen\documents\visual studio 2017\Projects\PIDcontrol\PIDcontrol\bin\SharpDX.xml
-C:\Users\Chen\documents\visual studio 2017\Projects\PIDcontrol\PIDcontrol\bin\SharpDX.XInput.xml

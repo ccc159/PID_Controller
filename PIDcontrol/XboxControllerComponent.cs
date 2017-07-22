@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Grasshopper.Kernel;
+using PIDcontrol.Properties;
 using PIDcontrol.Xbox360;
 using Rhino.Geometry;
 
@@ -147,7 +148,7 @@ namespace PIDcontrol
             {
                 //You can add image files to your project resources and access them like this:
                 // return Resources.IconForThisComponent;
-                return null;
+                return Resources.xbox;
             }
         }
 

@@ -5,3 +5,21 @@ c:\users\chen\documents\visual studio 2017\Projects\PIDcontrol\PIDcontrol\obj\De
 c:\users\chen\documents\visual studio 2017\Projects\PIDcontrol\PIDcontrol\obj\Debug\PIDcontrol.csproj.GenerateResource.Cache
 c:\users\chen\documents\visual studio 2017\Projects\PIDcontrol\PIDcontrol\obj\Debug\PIDcontrol.dll
 c:\users\chen\documents\visual studio 2017\Projects\PIDcontrol\PIDcontrol\obj\Debug\PIDcontrol.pdb
+C:\Users\chen\Source\Repos\PID_Controller\PIDcontrol\bin\PIDcontrol.dll
+C:\Users\chen\Source\Repos\PID_Controller\PIDcontrol\bin\PIDcontrol.pdb
+C:\Users\chen\Source\Repos\PID_Controller\PIDcontrol\bin\GH_IO.dll
+C:\Users\chen\Source\Repos\PID_Controller\PIDcontrol\bin\Grasshopper.dll
+C:\Users\chen\Source\Repos\PID_Controller\PIDcontrol\bin\GH_Util.dll
+C:\Users\chen\Source\Repos\PID_Controller\PIDcontrol\bin\QWhale.Syntax.Parsers.dll
+C:\Users\chen\Source\Repos\PID_Controller\PIDcontrol\bin\QWhale.Editor.dll
+C:\Users\chen\Source\Repos\PID_Controller\PIDcontrol\bin\Mono.Cecil.dll
+C:\Users\chen\Source\Repos\PID_Controller\PIDcontrol\bin\QWhale.Syntax.dll
+C:\Users\chen\Source\Repos\PID_Controller\PIDcontrol\bin\QWhale.Common.dll
+C:\Users\chen\Source\Repos\PID_Controller\PIDcontrol\bin\GH_IO.xml
+C:\Users\chen\Source\Repos\PID_Controller\PIDcontrol\bin\Grasshopper.pdb
+C:\Users\chen\Source\Repos\PID_Controller\PIDcontrol\bin\Grasshopper.xml
+C:\Users\chen\Source\Repos\PID_Controller\PIDcontrol\obj\Debug\PIDcontrol.csprojResolveAssemblyReference.cache
+C:\Users\chen\Source\Repos\PID_Controller\PIDcontrol\obj\Debug\PIDcontrol.Properties.Resources.resources
+C:\Users\chen\Source\Repos\PID_Controller\PIDcontrol\obj\Debug\PIDcontrol.csproj.GenerateResource.Cache
+C:\Users\chen\Source\Repos\PID_Controller\PIDcontrol\obj\Debug\PIDcontrol.dll
+C:\Users\chen\Source\Repos\PID_Controller\PIDcontrol\obj\Debug\PIDcontrol.pdb

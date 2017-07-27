@@ -12,7 +12,6 @@ namespace PIDcontrol
     {
         private XboxController currentController;
         public int index;
-        private bool connected = true;
         public bool autoupdate;
 
         public double LeftXAxis;
@@ -89,7 +88,7 @@ namespace PIDcontrol
 
             
             CheckConnection();
-            if(!connected) return;
+
 
             XboxController.StartPolling();
             LeftXAxis = RemapValue(currentController.LeftThumbStick.X, -32768.0, 32767.0, -1.0, 1.0);

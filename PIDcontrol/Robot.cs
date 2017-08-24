@@ -17,14 +17,19 @@ namespace PIDcontrol
         public Point3d TargetPos { set; get; }
         public bool Pausing { set; get; }
         public string Message { set; get; }
+        public Plane MovingPlane { set; get; }
         public List<Object> Visualization;
 
-        private double divideLength = 0.2;
-        private double turnTolerance = 10.0 * Math.PI / 180;
+        private double divideLength = 0.15;
+        private double turnTolerance = 20.0 * Math.PI / 180;
         private int index = 0;
         private int pointsCount;
-        private Vector3d CurrentVec;
-        private Vector3d TargetVec;
+        private Point3d Location;
+        private Point3d PrevLocation;
+        private Vector3d CurrentVel;
+        private Vector3d DesiredVel;
+        private Vector3d Acceleration;
+        private DateTime LastUpdate;
         private bool Running;
         private bool Ending = false;
 
@@ -33,14 +38,18 @@ namespace PIDcontrol
 
 
 
-        public Robot(Plane currentPos, List<Curve> paths, double tolerance)
+        public Robot(Plane currentPos, List<Curve> paths, double tolerance, Plane movingPlane)
         {
             CurrentPos = currentPos;
+            Location = CurrentPos.Origin;
+            PrevLocation = Location;
             PathCurves = paths;
             Tolerance = tolerance;
             PathPoints = GetPathPoints();
             pointsCount = PathPoints.Count;
             TargetPos = PathPoints[index];
+            MovingPlane = movingPlane;
+            LastUpdate = DateTime.Now;
             Running = true;
         }
 
@@ -57,12 +66,13 @@ namespace PIDcontrol
             return pathPoints;
         }
 
-        public void Update()
+        public void Update(Plane curPln)
         {
             Running = !Pausing && !Ending;
             if (Running)
             {
-                CheckDestination();
+                
+                UpdateState(curPln);
                 Move();
             }
             else Pause();
@@ -80,39 +90,78 @@ namespace PIDcontrol
 
         }
 
+        private void UpdateState(Plane curPln)
+        {
+            // current location
+            CurrentPos = curPln;
+            Location = CurrentPos.Origin;
+            // target location
+            CheckDestination();
+            // current velocity
+            GetCurrentVel();
+            // desired velocity
+            DesiredVel = Vector3d.Subtract((Vector3d)TargetPos, (Vector3d)Location);
+            // acceleration
+            Acceleration = DesiredVel - CurrentVel;
+        }
+
         private void Move()
         {
-            CurrentVec = CurrentPos.YAxis;
-            TargetVec = Vector3d.Subtract((Vector3d)TargetPos,(Vector3d)CurrentPos.Origin);
-            angle = Vector3d.VectorAngle(CurrentVec, TargetVec, Plane.WorldXY);
+            
+            angle = Vector3d.VectorAngle(CurrentVel, DesiredVel, MovingPlane);
             if(angle > turnTolerance && angle < Math.PI) TurnLeft();
             else if (angle > Math.PI && angle < Math.PI * 2 - turnTolerance) TurnRight();
             else MoveForward();
         }
 
+        private void GetCurrentVel()
+        {
+            DateTime nowTime = DateTime.Now;
+            double dT = (nowTime - LastUpdate).TotalSeconds;
+            CurrentVel = (Location - PrevLocation) / dT;
+            LastUpdate = nowTime;
+            PrevLocation = Location;
+        }
+
         private void Visualize()
         {
-             Visualization = new List<object>(){TargetPos,Tolerance,CurrentPos,CurrentVec,TargetVec};
+             Visualization = new List<object>(){TargetPos,Tolerance,CurrentPos, CurrentVel, DesiredVel};
         }
 
         private void MoveForward()
         {
-            Message = "W";
+            Message = string.Format(">{0},{1}<", System.Math.Round(Acceleration.X, 2), System.Math.Round(Acceleration.Y, 2));
         }
 
         private void TurnRight()
         {
-            Message = "D";
+            Message = ">1.0,0.0<";
         }
 
         private void TurnLeft()
         {
-            Message = "A";
+            Message = ">-1.0,0.0<";
         }
 
         private void Pause()
         {
-            Message = "";
+            Message = ">0.0,0.0<";
+        }
+
+        private double RemapValue(double value, double oldmin, double oldmax, double newmin, double newmax)
+        {
+            double vPercentage = (value - oldmin) / (oldmax - oldmin);
+            return newmin + vPercentage * (newmax - newmin);
+        }
+
+        //limit the value between minimum and maximum.
+        private double ClampValue(double value, double min, double max)
+        {
+            if (value > max)
+                return max;
+            if (value < min)
+                return min;
+            return value;
         }
 
     }
